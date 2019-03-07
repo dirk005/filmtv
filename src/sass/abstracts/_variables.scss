@@ -1,0 +1,41 @@
+/* MEDIA QUERY SIZES */
+// 1em  = 16px   eg. 600px / 16px = 37.5rem
+
+$bp-xxsmall:31.25em;         //0-500px                :xxsmall
+$bp-xsmall:37.5em;             //500px-600px        :xsmall
+$bp-small : 56.25em;          // 600px - 900px      : small
+$bp-medium : 68.75em;     // 900px -1100px      : medium
+$bp-large : 81.25em;          // 1100px -1300px    : large
+                                           // 1300px - 1800px   : Normal styles
+$bp-xlarge : 112.5em;        // 1800px  +              : xlarge
+
+/* COLORS */
+$color-primary:   #399898;
+
+$color-primary-light: #69FBFB;
+$color-primary-dark:#0F3434;
+
+$color-secondery-light: #FF6A6A;
+$color-secondery-dark: #571919;
+
+$color-tertiary-light: #69FD69;
+$color-tertiary-dark: #144614;
+
+$color-grey-light-1: #faf9f9;
+$color-grey-light-2: #f4f2f2;
+$color-grey-light-3: #f0eeee;
+$color-grey-light-4: #ccc;
+
+$color-grey-dark-1: #333;
+$color-grey-dark-2: #777;
+$color-grey-dark-3: #999;
+
+$color-white:#fff;
+$color-black:#000;
+
+/* FONTS */
+
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
+$default-font-size : 1.6rem;
+$font-Pacifoco : 'Pacifico', cursive;
