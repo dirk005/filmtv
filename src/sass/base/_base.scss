@@ -18,6 +18,9 @@ html{
     }
 }
 
+body{
+    background-color: $color-primary;
+}
 /*  Change slection colors */
 ::selection{
     background-color: $color-primary;

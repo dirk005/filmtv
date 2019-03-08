@@ -10,16 +10,11 @@ $bp-large : 81.25em;          // 1100px -1300px    : large
 $bp-xlarge : 112.5em;        // 1800px  +              : xlarge
 
 /* COLORS */
-$color-primary:   #399898;
+$color-primary:   rgb(128, 0, 128);
 
-$color-primary-light: #69FBFB;
-$color-primary-dark:#0F3434;
+$color-primary-light: rgb(168, 77, 168);
+$color-primary-dark:rgb(92, 3, 92);
 
-$color-secondery-light: #FF6A6A;
-$color-secondery-dark: #571919;
-
-$color-tertiary-light: #69FD69;
-$color-tertiary-dark: #144614;
 
 $color-grey-light-1: #faf9f9;
 $color-grey-light-2: #f4f2f2;
