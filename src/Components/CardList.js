@@ -7,7 +7,7 @@ const CardList = ({films}) => {
             {
                 films.map((film , i) => {
                     return(
-                        <Card 
+                        <Card  className='cardlist'
                             key={film.id}
                             id={film.id}
                             title={film.title}
