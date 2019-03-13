@@ -2,9 +2,10 @@ import React from 'react';
 import Card from './Card';
 
 const CardList = ({films}) => {
+    
     return(
         <div className="cardlist">
-            {
+            { //DISPLAY ALL MOVIES AND SERIES IN FILMS ARRAY
                 films.map((film , i) => {
                     return(
                         <Card  className='cardlist'

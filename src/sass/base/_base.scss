@@ -19,7 +19,8 @@ html{
 }
 
 body{
-    background-color: $color-primary;
+    font-family: $font-arvo;
+    background-color: $color-grey-dark-1;
 }
 /*  Change slection colors */
 ::selection{

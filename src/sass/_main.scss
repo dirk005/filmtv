@@ -10,9 +10,14 @@
 @import "base/utilities";
 
 /* Import Component files */
-@import "components/card";
-@import "components/cardlist";
+@import "components/navigation";
+@import "components/header";
 @import "components/scroll";
+@import "components/cardlist";
+@import "components/card";
+@import "components/footer";
+@import "components/loader";
+
 
 /* Import Layout files */
 

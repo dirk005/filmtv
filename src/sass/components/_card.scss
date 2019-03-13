@@ -12,15 +12,15 @@
         &:hover &--caption{
             opacity: 1;
             transform: translateY(0);
+            
         }
 
-        //Blur image on hover
-        &:hover &--image{
-            filter: blur(.4rem) brightness(20%);
-        }
+        
+        
 
         &--image{
             height: 100%;
+            max-width: 26rem;
         }
 
         &--caption{
@@ -28,16 +28,16 @@
             top:3%;
             left:0;
             width: 100%;
-            height: 100%;
-            padding: 2rem 1rem;
-            transform:translateY(80%);
-            color:$color-white;
-            text-shadow: 0 .1rem .1rem $color-white;
-            font-size: 1.4rem;
-            text-align: center;
-            opacity: 0;
-            transition: all 1s;   
-            backface-visibility: hidden;      
+            height: 100%;            
+            transform:translateY(10%);
+            transition: all .5s;   
+            backface-visibility: hidden;   
+            
+            @include respond(medium){ 
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
 
             &-button{
                 position: absolute;
@@ -49,12 +49,12 @@
                 font-weight: 500;
                 color:$color-white;
                 border:none;
-                background-color: $color-primary-dark;
+                background-color:rgba($color-primary-dark,.6);
                 padding:1rem 0;
                 cursor: pointer;
 
                 &:hover{
-                    background-color:  $color-primary-light;
+                    background-color:  $color-primary-dark;
                 }
 
                 &:active{
@@ -64,27 +64,15 @@
         }
     }
    
-
-    &__top{
+    &__rating{
         position: absolute;
-        top:0;
-        left: 0;
-        width: 100%;
+        top:.5rem;
+        right: .5rem;
         font-size: $default-font-size;
         color:$color-white;
-        text-shadow: 0 .1rem .2rem $color-white;
+        text-shadow: 0 .1rem .2rem $color-black;        
+        padding: .5rem 1rem;
+        border-radius: 1rem;
         background-color: rgba($color-black,.9);
-        padding:.5rem;
-        border-bottom: .1rem solid $color-primary;
-        
-        display: flex;
-        justify-content: space-between;
-    }
-    &__release{
-        
-    }
-
-    &__rating{
-        
     }
 }

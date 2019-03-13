@@ -4,13 +4,14 @@ import {
     REQUEST_FILM_PENDING,
     REQUEST_FILM_FAILED,
     REQUEST_NOW_PLAYING,
-    REQUEST_POPULER_MOVIES,
+    REQUEST_POPULAR_MOVIES,
     REQUEST_TOP_MOVIES,
-    REQUEST_UPCOMMING_MOVIES,
+    REQUEST_UPCOMING_MOVIES,
     REQUEST_AIRING_TODAY_TV,
     REQUEST_ON_AIR_TV,
-    REQUEST_POPULER_TV,
-    REQUEST_TOP_TV
+    REQUEST_POPULAR_TV,
+    REQUEST_TOP_TV,
+    REQUEST_TRENDING
 } from './constants.js';
 
 export const searchFilm = (text) => ({
@@ -21,24 +22,24 @@ export const searchFilm = (text) => ({
 
 export const requestFilm = (reqType) => (dispatch) => {
     dispatch({ type: REQUEST_FILM_PENDING });
+    //GET INFO FORM API
     fetch(`http://localhost:3001/${reqType}`)
         .then(response => response.json())
-        .then(data => {
-           // console.log(data)
+        .then(data => {           
             const filmInfo = JSON.parse(data);
-            //console.log(filmInfo.results)
+            //ADD TO STATE DEPENDING ON TYPE ON REQ FROM API
             switch (reqType){
                 case 'nowPlayingMovies':
                     dispatch({ type: REQUEST_NOW_PLAYING, payload: filmInfo.results })
                     break;
                 case 'popularMovies':
-                    dispatch({ type: REQUEST_POPULER_MOVIES, payload: filmInfo.results })
+                    dispatch({ type: REQUEST_POPULAR_MOVIES, payload: filmInfo.results })
                     break;
                 case 'topRatedMovies':
                     dispatch({ type: REQUEST_TOP_MOVIES, payload: filmInfo.results })
                     break;
                 case 'upcomingMovies':
-                    dispatch({ type: REQUEST_UPCOMMING_MOVIES, payload: filmInfo.results })
+                    dispatch({ type: REQUEST_UPCOMING_MOVIES, payload: filmInfo.results })
                     break;
                 case 'airingTodayTv':
                     dispatch({ type: REQUEST_AIRING_TODAY_TV, payload: filmInfo.results })
@@ -47,10 +48,13 @@ export const requestFilm = (reqType) => (dispatch) => {
                     dispatch({ type: REQUEST_ON_AIR_TV, payload: filmInfo.results })
                     break;
                 case 'popularTv':
-                    dispatch({ type: REQUEST_POPULER_TV, payload: filmInfo.results })
+                    dispatch({ type: REQUEST_POPULAR_TV, payload: filmInfo.results })
                     break;
                 case 'topRatedTv':
                     dispatch({ type: REQUEST_TOP_TV, payload: filmInfo.results })
+                    break;
+                case 'trending':
+                    dispatch({ type: REQUEST_TRENDING, payload: filmInfo.results })
                     break;
                 default:
                     dispatch({ type: REQUEST_FILM_FAILED, payload: 'error' })
