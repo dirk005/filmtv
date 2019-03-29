@@ -60,7 +60,7 @@ export const requestFilm = (reqType) => (dispatch) => {
                     dispatch({ type: REQUEST_FILM_FAILED, payload: 'error' })
                     break;
             }
-            
         })
+        
         .catch(error => dispatch({ type: REQUEST_FILM_FAILED, payload: error }))
 }

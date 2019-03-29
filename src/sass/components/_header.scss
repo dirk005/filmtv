@@ -1,5 +1,5 @@
 .header{
-    
+    position: relative;
     margin-bottom: 2rem;
     
     &__slide{
@@ -18,14 +18,14 @@
             position: relative;
 
              @include respond(medium){ 
-                background-size:100% 40vh;
-                height: 40vh;  
+                background-size:100% 50vh;
+                height: 50vh;  
              }
         }
 
         &--heading{
             position: absolute;
-            bottom:10rem;
+            bottom:2%;
             left:2rem;
             width: 20%;              
             font-size: 2.8rem;
@@ -85,14 +85,17 @@
 
     & + div.indicators{
         position: absolute;
-        bottom:50%;
-        right:1%;
+        bottom:40%;
+        right:2rem;
+        transform: translateX(-60%);
         z-index: 10;
         flex-direction: column;
 
         @include respond(medium){ 
-            bottom:65%;
-            right:.5%;
+            bottom:-2rem;
+            right:50%;
+            transform: translateX(50%);
+            flex-direction: row;
         }
 
         & > div{

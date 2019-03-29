@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Loader = () => {
-    return (
+export const Loader = () => (
         <div className="load-spinner">
             <div></div>
             <div></div>
@@ -17,6 +16,3 @@ const Loader = () => {
             <div></div>
         </div>
     )
-}
-
-export default Loader;

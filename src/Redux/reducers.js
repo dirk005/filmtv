@@ -12,7 +12,6 @@ import {
     REQUEST_POPULAR_TV,
     REQUEST_TOP_TV,
     REQUEST_TRENDING
-
 } from './constants.js';
 
 //START WITH BLANK SEARCH
@@ -63,14 +62,13 @@ export const requestFilm = (state = initialStateFilm, action = {}) => {
         case REQUEST_ON_AIR_TV:
             return Object.assign({}, state, { onTheAirTv: action.payload })
         case REQUEST_POPULAR_TV:
-            return Object.assign({}, state, { popularTv: action.payload })
+            return Object.assign({}, state, { popularTv: action.payload , isPending: false})
         case REQUEST_TOP_TV:
-            return Object.assign({}, state, { topRatedTv: action.payload })
+            return Object.assign({}, state, { topRatedTv: action.payload})
         case REQUEST_TRENDING:
-            return Object.assign({}, state, { trending: action.payload, isPending: false })
+            return Object.assign({}, state, { trending: action.payload })
         case REQUEST_FILM_FAILED:
-            return Object.assign({}, state, { error: action.payload, isPending: false })
-        
+            return Object.assign({}, state, { error: action.payload, isPending: false })        
         default:
             return state;
     }

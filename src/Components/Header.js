@@ -1,6 +1,6 @@
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
-import HeaderBack from './HeaderBack';
+import {HeaderBack} from './HeaderBack';
 
 const properties = {
     duration: 5500,
@@ -10,17 +10,10 @@ const properties = {
     arrows: false
   }
 
-const Header = ({films}) => {
-    
-    console.log(films);
-    return (
-        <header className='header'>
-            <Slide className='header__slide' {...properties}>            
-                { films.map((data,i) => <HeaderBack key={i} data={data}/>) }
-            </Slide>
-
-        </header>
-    );
-}
-
-export default Header;
+ export const Header = ({films}) => (
+    <header className='header'>
+        <Slide className='header__slide' {...properties}>            
+            { films.map((data,i) => <HeaderBack key={i} data={data}/>) }
+        </Slide>
+    </header>
+);

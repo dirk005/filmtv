@@ -4,10 +4,10 @@ import { searchFilm, requestFilm} from '../Redux/actions';  //GET FROM REDUX
 
 //GET COMPONENTS
 import Navigation from '../Components/Navigation';
-import Header from '../Components/Header';
-import Scroll from '../Components/Scroll';
-import Footer from '../Components/Footer';
-import Loader from '../Components/Loader';
+import {Header} from '../Components/Header';
+import {Scroll} from '../Components/Scroll';
+import {Footer} from '../Components/Footer';
+import {Loader} from '../Components/Loader';
 
 
 const mapStateToProps = state => {
@@ -75,58 +75,49 @@ class App extends Component {
 					page :'topRatedTv',
 					heading:'Top Rated Series'
 				}
-				
-
 			]
 		}
 	}
 
-	componentDidMount() {
+	 componentDidMount() {
 
 		const pages = this.state.pages;
-		//GET ALL PAGES AND ADD TO REDUX STATE
-		pages.map((page,i) => {			
-			return this.props.onRequestFilm(page.page);			
-		});		
+		//GET ALL PAGES AND ADD TO REDUX 
+		this.getPages(pages)
+		
+		
 	} 
+
+	 getPages = (pages) => {
+		pages.map(page => this.props.onRequestFilm(page.page)) 
+	}
 	
 
   render() {
 		const { isPending ,trending } = this.props;
 		const { pages } = this.state;
-		const displayFilms = pages.filter((data,i)=> {
-			return i=== 0 || i=== 2 || i===3 || i===7 ||i ===8 ? data : false;
-		});
-		const newFilms = trending.reverse().filter((data,i) =>i<=5? data :false);
-
+		const displayFilms = pages.filter((data,i)=>  i=== 0 || i=== 2 || i===3 || i===7 ||i ===8 )	//Add/remove index from pages obj to display on home page	
+		const newFilms = trending.filter((data, i) => i <= 5 ) //Number of films to display on header
+		//console.log(this.props.isPending)
     return (
-      <div className="App">
-			{ !isPending?(
-				 <>
+      	<div className="App">
+			{ !isPending? (
+				<>
 				 	<Navigation/>
-				 	<Header films={newFilms}/>
+					<Header films={newFilms}/>
 
-				 	{ //Display all pages(Movies and series) form props
-				 		displayFilms.map((page,i) => {	
-							 let pageLink = page.page;		
-				 		 	 return <Scroll className='scroll' key={i} header={page.heading} films={this.props[pageLink]}/>
-				 		 })
-					 }	
-					 <Footer/>				
+					{ //Display all pages(Movies and series) form props
+						displayFilms.map((page,i) => <Scroll className='scroll' key={i} header={page.heading} films={this.props[page.page]}/>)
+					}											
 				</>
-				):(
-					<>
-						{
-							//LOADING
-						}
-						<Loader/>
-					</>
-				)
-			}
-			
-      </div>
-    );
+			):(//LOADING
+				<Loader/>					
+			)
+			}	
+			<Footer/>
+      	</div>
+    )
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)( App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
