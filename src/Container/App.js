@@ -98,7 +98,7 @@ class App extends Component {
 		const { pages } = this.state;
 		const displayFilms = pages.filter((data,i)=>  i=== 0 || i=== 2 || i===3 || i===7 ||i ===8 )	//Add/remove index from pages obj to display on home page	
 		const newFilms = trending.filter((data, i) => i <= 5 ) //Number of films to display on header
-		//console.log(this.props.isPending)
+		console.log(this.props)
     return (
       	<div className="App">
 			{ !isPending? (
